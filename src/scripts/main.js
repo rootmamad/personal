@@ -102,3 +102,7 @@ function revealOnScroll() {
 
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Welcome to My Personal Website!');
+});
