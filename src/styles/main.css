@@ -1228,3 +1228,30 @@ html {
 }
 
 .footer-nav a:hover { color: #64ffda; }
+
+
+/* حالت اولیه: مخفی و کمی جابه‌جا */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+/* وقتی فعال شد */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* جهت‌های مختلف */
+.reveal.fade-up    { transform: translateY(30px); }
+.reveal.fade-down  { transform: translateY(-30px); }
+.reveal.fade-left  { transform: translateX(-30px); }
+.reveal.fade-right { transform: translateX(30px); }
+
+.reveal.active.fade-up,
+.reveal.active.fade-down,
+.reveal.active.fade-left,
+.reveal.active.fade-right {
+  transform: translate(0,0);
+}
