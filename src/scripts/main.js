@@ -106,3 +106,34 @@ window.addEventListener('load', revealOnScroll);
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Welcome to My Personal Website!');
 });
+
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault(); // Prevent page refresh
+
+  let formData = new FormData(this);
+
+  let response = await fetch("/contact", {
+      method: "POST",
+      body: formData
+  });
+
+  if (response.ok) {
+      Swal.fire({
+          title: "✅ Message Sent!",
+          text: "We will get back to you shortly.",
+          icon: "success",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#4CAF50",
+          background: "#fefefe",
+          color: "#333"
+      });
+      this.reset(); // Clear form after submission
+  } else {
+      Swal.fire({
+          title: "❌ Oops!",
+          text: "Something went wrong. Please try again.",
+          icon: "error",
+          confirmButtonText: "OK"
+      });
+  }
+});
